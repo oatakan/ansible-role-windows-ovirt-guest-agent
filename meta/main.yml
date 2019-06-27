@@ -1,0 +1,32 @@
+---
+galaxy_info:
+  author: Orcun Atakan
+  description: Ansible galaxy role for installing installs ovirt agent on Windows images.
+  company: Red Hat
+
+  license: MIT
+
+  min_ansible_version: 2.5
+
+  platforms:
+    - name: Windows
+      versions:
+        - all
+
+  categories:
+    - all
+
+  cloud_platforms:
+    - ovirt
+    - rhev
+    - rhv
+
+  galaxy_tags:
+    - windows
+    - ovirt
+    - rhev
+    - rhv
+    - cloud
+    - multicloud
+
+dependencies: []
