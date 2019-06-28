@@ -1,4 +1,4 @@
-# ansible-role-windows-ovirt-guest-agent
+# ansible-role-windows_ovirt_guest_agent
 This repo contains an Ansible role that installs ovirt agent for Windows images.
 
 Role Name
@@ -25,7 +25,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - oatakan.windows-ovirt-guest-agent
+         - oatakan.windows_ovirt_guest_agent
 
 License
 -------
