@@ -2,7 +2,7 @@
 
 - name: "{{ ansible_distribution | lower }} | import virtio role"
   import_role:
-    name: virtio
+    name: "{{ virtio_role }}"
   vars:
     virtio_win_iso_url: "{{ ovirt_win_iso_url }}"
     virtio_win_iso_name: "{{ ovirt_win_iso_name }}"
