@@ -28,6 +28,7 @@
     creates: "{{ ansible_env['ProgramFiles(x86)'] }}\\oVirt Guest Tools"
   async: 1
   poll: 0
+  ignore_errors: yes
 
 - name: "{{ ansible_distribution | lower }} | wait for system to be online"
   wait_for_connection:
