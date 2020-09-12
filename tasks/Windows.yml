@@ -21,14 +21,20 @@
 #    Arguments: >
 #      /S
 
-- name: "{{ ansible_distribution | lower }} | install Ovirt Guest Agent"
-  win_shell: '{{ virtio_win_iso_path }}\ovirt-guest-tools-setup.exe /S'
-  args:
-    executable: cmd
-    creates: "{{ ansible_env['ProgramFiles(x86)'] }}\\oVirt Guest Tools"
-  async: 1
-  poll: 0
-  ignore_errors: yes
+- block:
+
+    - name: "{{ ansible_distribution | lower }} | install Ovirt Guest Agent"
+      win_shell: '{{ virtio_win_iso_path }}\ovirt-guest-tools-setup.exe /S'
+      args:
+        executable: cmd
+        creates: "{{ ansible_env['ProgramFiles(x86)'] }}\\oVirt Guest Tools"
+      async: 1
+      poll: 0
+#      ignore_errors: yes
+
+  rescue:
+    - pause:
+        seconds: 600
 
 - name: "{{ ansible_distribution | lower }} | wait for system to be online"
   wait_for_connection:
