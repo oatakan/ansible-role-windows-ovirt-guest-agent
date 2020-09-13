@@ -36,6 +36,16 @@
     - pause:
         seconds: 600
 
+    # let's retry
+    - name: "{{ ansible_distribution | lower }} | install Ovirt Guest Agent"
+      win_shell: '{{ virtio_win_iso_path }}\ovirt-guest-tools-setup.exe /S'
+      args:
+        executable: cmd
+        creates: "{{ ansible_env['ProgramFiles(x86)'] }}\\oVirt Guest Tools"
+      async: 1
+      poll: 0
+      ignore_errors: yes
+
 - name: "{{ ansible_distribution | lower }} | wait for system to be online"
   wait_for_connection:
     connect_timeout: 10
