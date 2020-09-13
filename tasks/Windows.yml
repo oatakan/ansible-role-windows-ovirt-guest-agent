@@ -24,9 +24,8 @@
 - block:
 
     - name: "{{ ansible_distribution | lower }} | install Ovirt Guest Agent"
-      win_shell: '{{ virtio_win_iso_path }}\ovirt-guest-tools-setup.exe /S'
+      win_command: '{{ virtio_win_iso_path }}\ovirt-guest-tools-setup.exe /S'
       args:
-        executable: cmd
         creates: "{{ ansible_env['ProgramFiles(x86)'] }}\\oVirt Guest Tools"
       async: 1
       poll: 0
